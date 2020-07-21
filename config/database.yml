@@ -22,4 +22,7 @@ test:
 
 production:
   <<: *default
-  database: genomics_db_prod
+  database: d84mf1rvldbj1q
+  username: uintcuxuwhznov
+  password: b43de8574c2a6372284de17dacce420668f8fda18c6b51882e8059ae88068684
+  host: ec2-3-216-129-140.compute-1.amazonaws.com

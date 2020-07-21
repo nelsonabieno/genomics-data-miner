@@ -1,0 +1,42 @@
+<br/>
+<br/>
+<br/>
+<div class="result-wrapper">
+  <h1>PATHOGENICITY/CLASSIFICATION RESULT </h1>
+  <h3> This variant with transcript Id </h3>
+  <u> <%= params[:transcript_id] %> </u>
+  <h3> has been found to be</h3>
+  <strong>
+    <h3>  <%= @result %> </h3>
+    <p> <i> <%= @description %>  </i> </p>
+  </strong>
+
+  <% if @color == "red" %>
+      <div class="circle red">
+      </div>
+  <% end %>
+
+  <% if @color == "blue" %>
+      <div class="circle blue">
+      </div>
+  <% end %>
+  <br/>
+  <br/>
+  <br/>
+  >><%= link_to("HOME", root_path, :class => "") %><<
+  <br/>
+  <br/>
+  <br/>
+</div>
+
+<h3> COLOR CODES </h3>
+<div class="circle blue left">
+</div>
+<p> &nbsp; &nbsp; Neutral </p>
+<br/>
+<br/>
+<br/>
+<br/>
+<div class="circle red left">
+</div>
+<p> &nbsp; &nbsp; Pathogenic </p>

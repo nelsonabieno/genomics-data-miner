@@ -1,0 +1,22 @@
+<br/>
+<br/>
+<br/>
+<div class="welcome-wrapper">
+  <h1> WELCOME TO GENE VARIANT CLASSIFICATION </h1>
+  <h1> BASED SOLUTION </h1>
+  <br/>
+  <strong>
+    <h3>  Please enter the variant transcript ID </h3>
+  </strong>
+  <% if @error %>
+    <strong>
+      <h3 class="error">  <%= @error %> </h3>
+    </strong>
+  <% end %>
+  <%= form_tag("/data_miner", method: "post")  do %>
+    <%= text_field_tag(:transcript_id) %>
+      <br/>
+      <br/>
+      <%= submit_tag(":: Submit ::") %>
+  <% end %>
+</div>
