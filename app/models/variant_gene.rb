@@ -1,0 +1,2 @@
+class VariantGene < ApplicationRecord
+end

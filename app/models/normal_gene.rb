@@ -1,0 +1,2 @@
+class NormalGene < ApplicationRecord
+end
