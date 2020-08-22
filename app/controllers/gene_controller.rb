@@ -24,6 +24,11 @@ class GeneController < ApplicationController
   def gene_filter
     transcript = @gene_variant[:transcript_id]
     @transcript_no = transcript[9..transcript.size].to_i
+
+    if @gene_variant[:translation_id].nil?
+      @gene_variant[:translation_id] = ''
+    end
+
     translate = @gene_variant[:translation_id]
     @translate_no = translate.empty? ? 0 : translate[9..translate.size].to_i
 
@@ -51,23 +56,18 @@ class GeneController < ApplicationController
   end
 
   def protein_available?
-    @gene_variant[:protein] != 'no protein'
+    @gene_variant[:protein].downcase != 'no protein'
   end
 
   def protein_coding?
-    @gene_variant[:biotype] == 'protein coding'
+    @gene_variant[:biotype].downcase == 'protein coding' || @gene_variant[:biotype].downcase == 'nonsense mediated decay'
   end
 
   def retained_intron?
-    @gene_variant[:biotype] == 'retained intron'
+    @gene_variant[:biotype].downcase == 'retained intron' || @gene_variant[:biotype].downcase == 'processed transcript'
   end
 
   def data_miner_params
     params.permit (:transcript_id)
-  end
-
-  def transcript_translation
-    byebug
-
   end
 end
