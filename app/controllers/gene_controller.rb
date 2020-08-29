@@ -37,15 +37,15 @@ class GeneController < ApplicationController
       @color= "blue"
     end
 
-    if protein_coding? && protein_available? && (@translate_no < @transcript_no)
+    if protein_coding? && protein_available? && (@translate_no > @transcript_no)
       @result = "PATHOGENIC"
-      @description = "(due to loss of function)"
+      @description = "(due to gain of function)"
       @color= "red"
     end
 
-    if protein_coding? && protein_available? && (@translate_no > @transcript_no)
+    if protein_coding? && protein_available? && (@translate_no < @transcript_no)
       @result = "NEUTRAL"
-      @description = "(due to gain of function)"
+      @description = "(due to loss of function)"
       @color= "blue"
     end
   end
